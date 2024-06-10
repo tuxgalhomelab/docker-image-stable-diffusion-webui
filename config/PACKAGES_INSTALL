@@ -1,0 +1,6 @@
+build-essential=12.9
+git=1:2.39.2-1.1
+python3-dev=3.11.2-1+b1
+python3-pip=23.0.1+dfsg-1
+python3-venv=3.11.2-1+b1
+python3=3.11.2-1+b1
