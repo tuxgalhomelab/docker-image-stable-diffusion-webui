@@ -17,6 +17,7 @@ ARG TORCH_VISION_VERSION
 ARG OPENCV_PYTHON_HEADLESS_VERSION
 ARG PACKAGES_TO_INSTALL
 
+# hadolint ignore=DL4006
 RUN \
     set -e -o pipefail \
     # Install build dependencies. \
@@ -38,7 +39,6 @@ RUN \
         stable-diffusion-webui-"$(echo "${STABLE_DIFFUSION_WEBUI_VERSION:?}" | sed -E 's/^v(.+)$/\1/g')" \
         ${USER_NAME:?} \
         ${GROUP_NAME:?} \
-    && ls -l /opt/ \
     && chown -R ${USER_NAME:?}:${GROUP_NAME:?} /opt/stable-diffusion-webui/ \
     && su --login --shell /bin/bash --command "TORCH_VERSION=${TORCH_VERSION:?} TORCH_VISION_VERSION=${TORCH_VISION_VERSION:?} OPENCV_PYTHON_HEADLESS_VERSION=${OPENCV_PYTHON_HEADLESS_VERSION:?} /scripts/install-stable-diffusion-webui.sh" ${USER_NAME:?} \
     && ln -sf /scripts/start-stable-diffusion-webui.sh /opt/bin/start-stable-diffusion-webui \
