@@ -19,7 +19,7 @@ ARG PACKAGES_TO_INSTALL
 
 # hadolint ignore=DL4006
 RUN \
-    set -e -o pipefail \
+    set -E -e -o pipefail \
     # Install build dependencies. \
     && homelab install util-linux \
     # Install dependencies. \
