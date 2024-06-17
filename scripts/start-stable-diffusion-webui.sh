@@ -1,6 +1,12 @@
 #!/usr/bin/env bash
 set -E -e -o pipefail
 
+set_umask() {
+    # Configure umask to allow write permissions for the group by default
+    # in addition to the owner.
+    umask 0002
+}
+
 start_stable_diffusion_webui() {
     echo "Starting stable-diffusion-webui ..."
     echo
@@ -24,4 +30,5 @@ start_stable_diffusion_webui() {
         --skip-torch-cuda-test
 }
 
+set_umask
 start_stable_diffusion_webui
