@@ -17,7 +17,7 @@ ARG TORCH_VISION_VERSION
 ARG OPENCV_PYTHON_HEADLESS_VERSION
 ARG PACKAGES_TO_INSTALL
 
-# hadolint ignore=DL4006
+# hadolint ignore=DL4006,SC3040
 RUN \
     set -E -e -o pipefail \
     && export HOMELAB_VERBOSE=y \
